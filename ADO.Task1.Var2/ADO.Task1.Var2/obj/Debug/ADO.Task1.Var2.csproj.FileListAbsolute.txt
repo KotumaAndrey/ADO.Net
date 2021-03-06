@@ -1,0 +1,7 @@
+C:\Users\Admin\source\repos\ADO.Task1.Var2\ADO.Task1.Var2\bin\Debug\ADO.Task1.Var2.exe.config
+C:\Users\Admin\source\repos\ADO.Task1.Var2\ADO.Task1.Var2\bin\Debug\ADO.Task1.Var2.exe
+C:\Users\Admin\source\repos\ADO.Task1.Var2\ADO.Task1.Var2\bin\Debug\ADO.Task1.Var2.pdb
+C:\Users\Admin\source\repos\ADO.Task1.Var2\ADO.Task1.Var2\obj\Debug\ADO.Task1.Var2.csprojAssemblyReference.cache
+C:\Users\Admin\source\repos\ADO.Task1.Var2\ADO.Task1.Var2\obj\Debug\ADO.Task1.Var2.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\ADO.Task1.Var2\ADO.Task1.Var2\obj\Debug\ADO.Task1.Var2.exe
+C:\Users\Admin\source\repos\ADO.Task1.Var2\ADO.Task1.Var2\obj\Debug\ADO.Task1.Var2.pdb
