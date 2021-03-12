@@ -8,12 +8,12 @@ namespace ADO.Task1.Var2
 {
     public class Dot
     {
-        public double x;
-        public double y;
+        public double X { get; set; }
+        public double Y { get; set; }
         public Dot(double x, double y)
         {
-            this.x = x;
-            this.y = y;
+            this.X = x;
+            this.Y = y;
         }
     }
 }
