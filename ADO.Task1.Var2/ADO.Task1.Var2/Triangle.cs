@@ -8,7 +8,7 @@ namespace ADO.Task1.Var2
 {
     public class Triangle
     {
-        Dot[] dot;
+        private Dot[] dot;
         public Triangle(Dot dot1, Dot dot2, Dot dot3)
         {
             dot = new Dot[3];

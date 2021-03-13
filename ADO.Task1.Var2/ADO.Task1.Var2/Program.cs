@@ -8,13 +8,23 @@ namespace ADO.Task1.Var2
 {
     class Program
     {
-        static double GetDouble()
+        public static void Main(string[] args)
+        {
+            Triangle triangle = GetTriangle();
+            Console.WriteLine("Perimetr = {0}", triangle.Perimeter());
+            Console.WriteLine("Area = {0}", triangle.Area());
+            
+            Console.ReadKey();
+        }
+
+        private static double GetDouble()
         {
             FormatterResult<double> res = null;
+            StringFormatter stringFormatter = new StringFormatter();
             do
             {
                 string input = Console.ReadLine();
-                res = StringFormatter.GetDouble(input);
+                res = stringFormatter.GetDouble(input);
 
                 if (res.IsValid)
                 {
@@ -23,20 +33,18 @@ namespace ADO.Task1.Var2
                 else
                 {
                     Console.WriteLine("Errors:");
-                    foreach (var err in res.Errors)
-                    {
-                        Console.WriteLine($"- {err.ErrorMessage}");
-                    }
+                    string s = string.Join("\n", res.Errors.Select(str => str.ErrorMessage));
+                    Console.WriteLine(s);
                 }
             }
             while (!res.IsValid);
 
-            return (double)res.Value;
+            return res.Value.Value;
         }
-        static Triangle GetTriangle()
+        private static Triangle GetTriangle()
         {
             Triangle triangle;
-            bool triangle_flag = false;
+            bool IsValidTriangle = false;
             do
             {
                 int dot_count = 3;
@@ -57,24 +65,16 @@ namespace ADO.Task1.Var2
 
                 triangle = new Triangle(dots[0], dots[1], dots[2]);
                 if (triangle.IsValid())
-                    triangle_flag = true;
+                    IsValidTriangle = true;
                 else
                 {
                     Console.WriteLine("Вы ввели вырожденный треугольник, try next time.");
                 }
             }
-            while (!triangle_flag);
+            while (!IsValidTriangle);
             return triangle;
         }
 
-        static void Main(string[] args)
-        {
-            Triangle triangle = GetTriangle();
-            Console.WriteLine("Perimetr = {0}", triangle.Perimeter());
-            Console.WriteLine("Area = {0}", triangle.Area());
-
-
-            Console.ReadKey();
-        }
+        
     }
 }
