@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Author.cs" />
+    <Compile Include="Book.cs" />
     <Compile Include="FormatterError.cs" />
     <Compile Include="FormatterResult.cs" />
     <Compile Include="Man.cs" />

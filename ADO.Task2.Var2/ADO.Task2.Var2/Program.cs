@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ADO.Task2.Var2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,13 +11,15 @@ namespace Ado.Task2.Var2
     {
         public static void Main(string[] args)
         {
-            Man man = GetMan();
+            /*Man man = GetMan();
             Student student = GetStudent();
             Man man2 = student;
-            Man man3 = GetStudent();
+            Man man3 = GetStudent();*/
+
+            Author author = GetAuthor();
+            Book book = GetBook();
         }
-
-
+        
         private static double GetDouble()
         {
             FormatterResult<double> res = null;
@@ -92,6 +95,31 @@ namespace Ado.Task2.Var2
             return res.Value;
         }
 
+        private static DateTime GetDateTime()
+        {
+            FormatterResult<DateTime> res = null;
+            StringFormatter stringFormatter = new StringFormatter();
+            do
+            {
+                string input = Console.ReadLine();
+                res = stringFormatter.GetDateTime(input);
+
+                if (res.IsValid)
+                {
+                    Console.WriteLine("All right");
+                }
+                else
+                {
+                    Console.WriteLine("Errors:");
+                    string s = string.Join("\n", res.Errors.Select(str => str.ErrorMessage));
+                    Console.WriteLine(s);
+                }
+            }
+            while (!res.IsValid);
+
+            return res.Value;
+        }
+
         private static Man GetMan()
         {
             Man man;
@@ -126,6 +154,37 @@ namespace Ado.Task2.Var2
             int group = GetInt();
             student = new Student(name, age, weight, length, year, course, group);
             return student;
+        }
+
+        private static Author GetAuthor()
+        {
+            Author author;
+            Console.WriteLine("Введите имя автора");
+            string name = GetString();
+            Console.WriteLine("Введите фамилию автора");
+            string familia = GetString();
+            Console.WriteLine("Введите дату рождения");
+            DateTime date = GetDateTime();
+            author = new Author(name, familia, date);
+            return author;
+        }
+
+        private static Book GetBook()
+        {
+            Book book;
+            Console.WriteLine("Введите название книги");
+            string name = GetString();
+            Console.WriteLine("Введите количество страниц");
+            int length = GetInt();
+            Console.WriteLine("Введите публикующую компанию");
+            string publisher = GetString();
+            Console.WriteLine("Введите дату публикации");
+            DateTime published_date= GetDateTime();
+            Console.WriteLine("Введите дату написания");
+            DateTime written_date = GetDateTime();
+            Author author = GetAuthor();
+            book = new Book(name, length, publisher, published_date, written_date, author);
+            return book;
         }
     }
 }

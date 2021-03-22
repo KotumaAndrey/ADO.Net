@@ -28,7 +28,7 @@ namespace Ado.Task2.Var2
             double val = 0;
             if (!double.TryParse(input, out val))
             {
-                res.Errors.Add(formatterError.Create("Cant transform the string"));
+                res.Errors.Add(formatterError.Create("Cant transform the string to float number"));
                 return res;
             }
             if (val <= 0)
@@ -61,7 +61,7 @@ namespace Ado.Task2.Var2
             int val = 0;
             if (!int.TryParse(input, out val))
             {
-                res.Errors.Add(formatterError.Create("Cant transform the string"));
+                res.Errors.Add(formatterError.Create("Cant transform the string to int number"));
                 return res;
             }
             if (val <= 0)
@@ -98,6 +98,34 @@ namespace Ado.Task2.Var2
             }
 
             res.Value = input;
+
+            return res;
+        }
+
+        public FormatterResult<DateTime> GetDateTime(string input)
+        {
+            FormatterResult<DateTime> res = new FormatterResult<DateTime>();
+            FormatterError formatterError = new FormatterError();
+            if (input == null)
+            {
+                res.Errors.Add(formatterError.Create("String is null"));
+                return res;
+            }
+
+            if (input.Length == 0)
+            {
+                res.Errors.Add(formatterError.Create("String is empty"));
+                return res;
+            }
+
+            DateTime val;
+            if (!DateTime.TryParse(input, out val))
+            {
+                res.Errors.Add(formatterError.Create("Cant transform the string to datetime format"));
+                return res;
+            }
+
+            res.Value = val;
 
             return res;
         }
